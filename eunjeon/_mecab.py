@@ -101,7 +101,7 @@ class Mecab(object):
             self.tagger = Tagger('--rcfile %s' % dicpath)
         except RuntimeError:
             try:  # Sometimes it works when we try twice.
-                self.tagger = Tagger('--rcfile %s' % dicpath)
+                self.tagger = Tagger('-d %s' % dicpath)
             except RuntimeError:
                 raise Exception('The MeCab dictionary does not exist at "%s". Is the dictionary correctly installed?\nYou can also try entering the dictionary path when initializing the Mecab class: "Mecab(\'/some/dic/path\')"' % dicpath)
         except NameError:
